@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --color-cream-50: #fffcf8;
+  --color-cream-100: #fbf5ee;
+  --color-cream-200: #f3e8dc;
+  --color-cream-300: #e8d7c5;
+
+  --color-rose-50: #fdf2f3;
+  --color-rose-100: #fae3e6;
+  --color-rose-200: #f2c3ca;
+  --color-rose-300: #e598a4;
+  --color-rose-400: #d56d7e;
+  --color-rose-500: #bf4c61;
+  --color-rose-600: #a33a4e;
+  --color-rose-700: #862e40;
+
+  --color-sage-200: #cfdccf;
+  --color-sage-500: #6f9274;
+  --color-sage-600: #5a7c60;
+  --color-sage-700: #48654d;
+
+  --color-charcoal-400: #7a7470;
+  --color-charcoal-500: #5c5753;
+  --color-charcoal-700: #3a3633;
+  --color-charcoal-900: #242120;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+  body {
+    @apply bg-cream-100 font-sans text-charcoal-900 antialiased;
+  }
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-xl border border-cream-300 bg-cream-50 px-4 py-3 text-base text-charcoal-900
+      placeholder:text-charcoal-400 transition outline-none
+      focus:border-rose-400 focus:ring-4 focus:ring-rose-100;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-charcoal-700;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-rose-600 px-7 py-3.5 font-medium text-cream-50
+      shadow-sm transition hover:bg-rose-700 focus-visible:ring-4 focus-visible:ring-rose-200 outline-none
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-charcoal-900/15 bg-cream-50 px-7 py-3.5
+      font-medium text-charcoal-900 transition hover:border-rose-300 hover:bg-rose-50
+      focus-visible:ring-4 focus-visible:ring-rose-100 outline-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .card {
+    @apply rounded-3xl border border-cream-300/70 bg-cream-50 shadow-[0_1px_2px_rgba(36,33,32,0.04),0_12px_40px_-12px_rgba(134,46,64,0.12)];
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes balloonUp {
+  0% {
+    transform: translate(0, 0) rotate(-4deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--sway), -60vh) rotate(4deg);
+  }
+  100% {
+    transform: translate(calc(var(--sway) * -1), -130vh) rotate(-4deg);
+    opacity: 1;
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(var(--r));
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes trophy {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(6deg);
+  }
+}

@@ -1,0 +1,17 @@
+# Dependencies and build output
+node_modules
+dist
+
+# Secrets and environment files — never commit
+.env
+.env.*
+.env.example
+
+# Private reference (contains every answer rule)
+questions.txt
+
+# Editor settings
+.vscode/
+.idea/
+*.log
+.DS_Store
