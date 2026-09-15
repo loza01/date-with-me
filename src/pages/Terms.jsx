@@ -15,12 +15,10 @@ function Section({ n, title, children }) {
 }
 
 export default function Terms() {
-  const contact = PRIVACY_CONTACT_EMAIL ? (
+  const contact = (
     <a href={`mailto:${PRIVACY_CONTACT_EMAIL}`} className="font-medium text-rose-600 hover:underline">
       {PRIVACY_CONTACT_EMAIL}
     </a>
-  ) : (
-    <span className="rounded bg-rose-50 px-1.5 text-rose-700">[contact email to be added]</span>
   )
 
   return (

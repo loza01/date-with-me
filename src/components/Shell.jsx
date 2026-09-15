@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { SUPPORT_EMAIL } from '../config/privacy'
 
 export function Shell({ children, wide = false, footer = true }) {
   return (
@@ -23,7 +24,14 @@ export function Shell({ children, wide = false, footer = true }) {
           ·{' '}
           <Link to="/terms" className="underline decoration-charcoal-400/40 underline-offset-2 hover:text-charcoal-700">
             Terms &amp; payment
-          </Link>
+          </Link>{' '}
+          ·{' '}
+          <a
+            href={`mailto:${SUPPORT_EMAIL}`}
+            className="underline decoration-charcoal-400/40 underline-offset-2 hover:text-charcoal-700"
+          >
+            {SUPPORT_EMAIL}
+          </a>
         </footer>
       )}
     </div>

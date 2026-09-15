@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { supabase, readableError } from '../lib/supabase'
 import { useAuth } from '../context/useAuth'
 import { Shell, Spinner, ErrorNote } from '../components/Shell'
+import { SUPPORT_EMAIL } from '../config/privacy'
 
 /**
  * Shown to every 100% match, now and on every later login. There is no way to
@@ -47,6 +48,12 @@ export default function Complete() {
           </h1>
           <div className="mx-auto my-5 h-px w-12 bg-rose-300" />
           <p className="font-serif text-2xl text-rose-600 italic">See you on FaceTime.</p>
+          <p className="mt-4 text-sm text-charcoal-500">
+            Questions? Email{' '}
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="font-medium text-rose-600 hover:underline">
+              {SUPPORT_EMAIL}
+            </a>
+          </p>
 
           <div className="mt-8 flex flex-col items-center gap-3">
             {profile?.reusable && (

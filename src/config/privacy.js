@@ -1,5 +1,6 @@
-// ⚠️ Fill in before going live: a separate address that doesn't reveal who you are.
-export const PRIVACY_CONTACT_EMAIL = ''
+// Support and privacy contact shown to applicants.
+export const SUPPORT_EMAIL = 'support@doomfast.com'
+export const PRIVACY_CONTACT_EMAIL = SUPPORT_EMAIL
 
 // Bump this when the notice changes; it is stored with each applicant's consent.
 export const PRIVACY_VERSION = '2026-09-15'

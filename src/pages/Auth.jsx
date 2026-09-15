@@ -124,6 +124,14 @@ export default function Auth({ mode, hideSignupLink = false }) {
             </div>
           )}
 
+          {!isSignup && (
+            <p className="-mt-2 text-right text-sm">
+              <Link to="/forgot-password" className="font-medium text-rose-600 hover:underline">
+                Forgot password?
+              </Link>
+            </p>
+          )}
+
           <ErrorNote>{error}</ErrorNote>
           {notice && <p className="rounded-xl bg-cream-200 px-4 py-3 text-sm text-charcoal-700">{notice}</p>}
 

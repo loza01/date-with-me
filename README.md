@@ -64,6 +64,17 @@ Banned emails and IP addresses are refused by triggers on `auth.users`, `profile
 
 Accounts listed in `reusable_emails` are reset instead of banned. Use one for testing.
 
+## Emails (support@doomfast.com)
+
+The site shows `support@doomfast.com` (`SUPPORT_EMAIL` in `src/config/privacy.js`) in the footer, the privacy notice, the terms and the match popup. Applicants reset forgotten passwords at `/forgot-password`, and the link in the email opens `/reset-password`.
+
+To send sign-up confirmation and reset emails **from** support@doomfast.com:
+
+1. **Custom SMTP:** Supabase → Authentication → Emails → **SMTP Settings** → enable, and enter your doomfast.com mail provider's details. Set the sender email to `support@doomfast.com` and the sender name to `The Chosen Path`.
+2. **Templates:** Supabase → Authentication → Emails → **Templates**. Paste `supabase/email-templates/confirm-signup.html` into "Confirm signup" and `supabase/email-templates/reset-password.html` into "Reset password". The subject lines are at the top of each file.
+3. **URL configuration:** Supabase → Authentication → **URL Configuration**. Set Site URL to the live address, and add `<site>/reset-password` and `http://localhost:5173/reset-password` to Redirect URLs.
+4. **Domain verification:** add the SPF and DKIM DNS records your mail provider gives you for doomfast.com, so emails don't land in spam.
+
 ## Review fee (Stripe)
 
 Postgres calls Stripe directly through the `http` extension, with the secret key stored in Vault. The questions unlock only after `confirm_payment()` verifies with Stripe that the session was paid, and checks the amount, currency and applicant.

@@ -61,6 +61,10 @@ export function AuthProvider({ children }) {
 
     const { data: listener } = supabase.auth.onAuthStateChange((event, newSession) => {
       if (event === 'INITIAL_SESSION') return
+      if (event === 'PASSWORD_RECOVERY' && window.location.pathname !== '/reset-password') {
+        window.location.replace('/reset-password')
+        return
+      }
       setSession(newSession)
 
       // Token refreshes keep the same user; only re-fetch on a real switch,

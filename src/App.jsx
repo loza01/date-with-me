@@ -15,6 +15,8 @@ import Complete from './pages/Complete'
 import NotFound from './pages/NotFound'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 
 // Loaded only once an admin is signed in, so applicants never download it.
 const Admin = lazy(() => import('./pages/Admin'))
@@ -80,6 +82,8 @@ function AppRoutes() {
       <Route path={ADMIN_PATH} element={<AdminGate />} />
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/terms" element={<Terms />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )
