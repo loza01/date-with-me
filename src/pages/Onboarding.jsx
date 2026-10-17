@@ -8,7 +8,6 @@ import { PhotoUploader } from '../components/PhotoUploader'
 import { TagInput } from '../components/TagInput'
 import { VoiceRecorder } from '../components/VoiceRecorder'
 import { DateOfBirthPicker } from '../components/DateOfBirthPicker'
-import { IdDocumentUploader } from '../components/IdDocumentUploader'
 import { EnigmaIntro } from '../components/EnigmaIntro'
 import { ageOn, toIsoDate } from '../lib/birthday'
 import { Link } from 'react-router-dom'
@@ -31,7 +30,6 @@ const EMPTY = {
   linkedinUrl: '',
   instagramUrl: '',
   photoPaths: [],
-  idDocumentPath: null,
   voice: null, // { path, duration }
   consent: false,
 }
@@ -69,10 +67,9 @@ const REQUIREMENTS = [
     },
   },
   {
-    title: 'Photos & ID',
+    title: 'Photos',
     checks: {
       photoPaths: (v) => v.length >= 3 && v.length <= 4,
-      idDocumentPath: Boolean,
     },
   },
   {
@@ -177,7 +174,6 @@ export default function Onboarding() {
       p_instagram_url: normalizeUrl(form.instagramUrl),
       p_voice_path: form.voice?.path,
       p_voice_duration: form.voice?.duration,
-      p_id_document_path: form.idDocumentPath,
       p_nationality_detail: form.nationality === AFRICAN ? form.nationalityDetail.trim() : null,
       p_residence_detail: form.residenceCountry === AFRICAN ? form.residenceDetail.trim() : null,
       p_consent_version: form.consent ? PRIVACY_VERSION : '',
@@ -370,24 +366,9 @@ export default function Onboarding() {
         )}
 
         {step === 3 && (
-          <>
-            <Field label="Photos" hint="Exactly 3 or 4 clear photos of you">
-              <PhotoUploader userId={session.user.id} paths={form.photoPaths} onChange={set('photoPaths')} />
-            </Field>
-
-            <div className="rounded-2xl border border-cream-300 bg-cream-100/60 p-5">
-              <p className="label mb-1">Identity Verification</p>
-              <p className="mb-4 text-sm leading-relaxed text-charcoal-500">
-                Upload a photo of your Driver’s License or Passport ID (You may blur out your document number, but full
-                name and Date of Birth must be clearly visible).
-              </p>
-              <IdDocumentUploader
-                userId={session.user.id}
-                value={form.idDocumentPath}
-                onChange={set('idDocumentPath')}
-              />
-            </div>
-          </>
+          <Field label="Photos" hint="Exactly 3 or 4 clear photos of you">
+            <PhotoUploader userId={session.user.id} paths={form.photoPaths} onChange={set('photoPaths')} />
+          </Field>
         )}
 
         {step === 4 && (
@@ -413,8 +394,8 @@ export default function Onboarding() {
               <Link to="/privacy" target="_blank" className="font-medium text-rose-600 hover:underline">
                 Privacy notice
               </Link>{' '}
-              and give my explicit consent to the processing of my data for this application, including my ID document,
-              photos, voice note, and answers that reveal my religious beliefs and health.
+              and give my explicit consent to the processing of my data for this application, including my photos,
+              voice note, and answers that reveal my religious beliefs and health.
             </span>
           </label>
         )}

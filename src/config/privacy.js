@@ -3,16 +3,12 @@ export const SUPPORT_EMAIL = 'support@doomfast.com'
 export const PRIVACY_CONTACT_EMAIL = SUPPORT_EMAIL
 
 // Bump this when the notice changes; it is stored with each applicant's consent.
-export const PRIVACY_VERSION = '2026-09-15'
+export const PRIVACY_VERSION = '2026-10-17'
 
 // Keep in sync with the DATA RETENTION block in supabase/schema.sql.
 export const RETENTION = [
   [
-    'Government ID photo',
-    'Deleted immediately if your application ends. If we are a match, deleted 30 days after the match.',
-  ],
-  [
-    'Application that ends (profile, photos, voice note, answers, ID)',
+    'Application that ends (profile, photos, voice note, answers)',
     'Deleted immediately when you close the “not a match” message, or 7 days after the application ended if you leave without closing it.',
   ],
   ['Name and age of an application that ended', 'Kept for 12 months, then deleted automatically.'],

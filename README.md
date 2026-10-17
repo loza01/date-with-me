@@ -39,7 +39,7 @@ insert into public.admins (user_id) select id from auth.users where email = '<ad
 
 | Status       | Route            | What happens                                                                                                                                                                                          |
 | ------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `onboarding` | `/onboarding`    | Introduction slides, then the profile form: date of birth, nationality and country, career, social links, background, values and expectations, 3–4 photos, government ID, 10–30 s voice note, consent |
+| `onboarding` | `/onboarding`    | Introduction slides, then the profile form: date of birth, nationality and country, career, social links, background, values and expectations, 3–4 photos, 10–30 s voice note, consent |
 | `payment`    | `/payment`       | Eligible applicants pay the review fee (only when payments are on)                                                                                                                                    |
 | `screening`  | `/questionnaire` | The question cards, one at a time                                                                                                                                                                     |
 | `contact`    | `/final-step`    | Phone number                                                                                                                                                                                          |

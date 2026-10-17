@@ -687,8 +687,8 @@ create or replace function public.complete_profile(
   p_instagram_url     text,
   p_voice_path        text,
   p_voice_duration    numeric,
-  p_id_document_path  text,
-  p_consent_version   text,
+  p_id_document_path  text default null, -- no longer collected; kept so older clients still work
+  p_consent_version   text default null,
   p_nationality_detail text default null,
   p_residence_detail   text default null,
   p_values_expectations text default null
@@ -718,7 +718,7 @@ begin
     raise exception 'profile_locked';
   end if;
 
-  -- Explicit consent to the privacy notice (required for religion/health data and the ID).
+  -- Explicit consent to the privacy notice (required for religion/health data).
   if coalesce(trim(p_consent_version), '') = '' then
     raise exception 'consent_required';
   end if;
@@ -735,14 +735,6 @@ begin
   v_age := date_part('year', age(current_date, p_date_of_birth))::int;
   if v_age not between 18 and 100 then
     raise exception 'invalid_date_of_birth';
-  end if;
-
-  -- Government ID: a private upload in the applicant's own folder.
-  if coalesce(p_id_document_path, '') = ''
-     or split_part(p_id_document_path, '/', 1) <> v_uid::text
-     or not exists (select 1 from storage.objects
-                    where bucket_id = 'applicant-ids' and name = p_id_document_path) then
-    raise exception 'missing_id_document';
   end if;
 
   if coalesce(trim(p_full_name), '') = ''

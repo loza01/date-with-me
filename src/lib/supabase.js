@@ -33,7 +33,6 @@ const RPC_ERRORS = {
   missing_voice: 'Please record your voice introduction.',
   invalid_voice_length: 'Your voice introduction must be between 10 and 30 seconds.',
   invalid_date_of_birth: 'Please select your full date of birth. You must be at least 18.',
-  missing_id_document: 'Please upload a photo of your driver’s license or passport.',
   application_closed: 'This application has been closed.',
   'Access Denied': 'This application has been closed.',
   files_remaining: 'Please try again. Your uploads are still being removed.',

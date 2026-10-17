@@ -40,7 +40,6 @@ export default function Privacy() {
             </li>
             <li>Your profile: name, date of birth, nationality, country, career, hobbies, interests and lifestyle.</li>
             <li>3–4 photos, a short voice introduction, and links to your X, LinkedIn or Instagram profile.</li>
-            <li>A photo of your driver’s licence or passport, to verify your identity and age.</li>
             <li>
               Your answers to the questionnaire. Some reveal <strong>religious beliefs and health information</strong>,
               which the law treats as especially sensitive.
