@@ -5,7 +5,7 @@ const SLIDES = [
   {
     kicker: 'I',
     title: 'The Hook',
-    body: 'You are here because you are curious about the woman behind this private application. I value ultimate privacy, discretion, and good standards. If you are a 100% match and follow these requirements from start to finish, the veil will lift, and I’ll reveal my identity directly to you. For now, look closely at the clues ->',
+    body: 'Welcome! If you’re curious about who’s running things behind the scenes, you’re in the right place. Privacy and discretion are incredibly important to me, and I appreciate people who value the same. If it turns out we’re a perfect match and we finish this process, the mystery ends and I’ll introduce myself properly. For now, check out these clues ->',
   },
   {
     kicker: 'II',
