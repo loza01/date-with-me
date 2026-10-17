@@ -19,7 +19,7 @@ export const PAYMENT_DISCLAIMER = {
     ],
     [
       'No refunds',
-      'The fee is non-refundable once your review starts, whatever the outcome. That includes an application that ends automatically because of your answers, one you do not finish, or one you leave. This does not remove rights you have by law, for example if you were charged twice or in error.',
+      'The fee is non-refundable once your review starts, whatever the outcome. That includes an application that ends automatically because of your answers, one you do not finish, or one you leave.',
     ],
     [
       'My decision is final',

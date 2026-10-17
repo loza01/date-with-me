@@ -173,7 +173,7 @@ insert into public.app_settings (key, value) values
   ('review_fee_cents', '399'),
   ('review_fee_currency', '"eur"'),
   -- Where Stripe may send applicants back to. Add the live site address here.
-  ('allowed_return_origins', '["http://localhost:5173", "http://localhost:4173", "http://localhost:5190"]')
+  ('allowed_return_origins', '["https://doomfast.com", "https://www.doomfast.com", "http://localhost:5173", "http://localhost:4173", "http://localhost:5190"]')
 on conflict (key) do nothing;
 
 -- Payment records. No foreign key on purpose: accounting records must survive

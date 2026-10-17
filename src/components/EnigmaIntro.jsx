@@ -20,7 +20,7 @@ const SLIDES = [
   {
     kicker: 'IV',
     title: 'The Lifestyle',
-    body: 'Entirely healthy, highly active, and exceptionally fit, I switch between travelling the world and enjoying quiet, elegant moments at home. I love to cook.',
+    body: 'Entirely healthy, highly active, and exceptionally fit, I switch between travelling the world and enjoying quiet, chill moments at home. I love to cook. I’m sociable.',
   },
   {
     kicker: 'V',

@@ -72,7 +72,7 @@ To send sign-up confirmation and reset emails **from** support@doomfast.com:
 
 1. **Custom SMTP:** Supabase → Authentication → Emails → **SMTP Settings** → enable, and enter your doomfast.com mail provider's details. Set the sender email to `support@doomfast.com` and the sender name to `The Chosen Path`.
 2. **Templates:** Supabase → Authentication → Emails → **Templates**. Paste `supabase/email-templates/confirm-signup.html` into "Confirm signup" and `supabase/email-templates/reset-password.html` into "Reset password". The subject lines are at the top of each file.
-3. **URL configuration:** Supabase → Authentication → **URL Configuration**. Set Site URL to the live address, and add `<site>/reset-password` and `http://localhost:5173/reset-password` to Redirect URLs.
+3. **URL configuration:** Supabase → Authentication → **URL Configuration**. Set Site URL to `https://doomfast.com`, and add `https://doomfast.com/reset-password`, `https://www.doomfast.com/reset-password` and `http://localhost:5173/reset-password` to Redirect URLs.
 4. **Domain verification:** add the SPF and DKIM DNS records your mail provider gives you for doomfast.com, so emails don't land in spam.
 
 ## Review fee (Stripe)
@@ -82,7 +82,7 @@ Postgres calls Stripe directly through the `http` extension, with the secret key
 To enable it:
 
 1. Store the key: `select vault.create_secret('sk_…', 'stripe_secret_key');`
-2. Add the site origin to `app_settings.allowed_return_origins`.
+2. Make sure `https://doomfast.com` and `https://www.doomfast.com` are in `app_settings.allowed_return_origins` (the schema adds them on a fresh install).
 3. Dashboard → **Settings** → **Turn payments on**.
 
 The wording is in `src/config/payment.js`. The Terms page is `/terms`.
